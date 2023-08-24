@@ -99,8 +99,6 @@ postRoute.delete("/blogs/:postId", middleware, async(req,res) => {
 
 
 })
-
-
 postRoute.patch("/blogs/:postId/like", middleware, async (req, res) => {
   try {
     const post = await Post.findById(req.params.postId);
