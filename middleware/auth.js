@@ -12,7 +12,7 @@ const middleware = (req,res,next) => {
             res.send("Please Login!")
         }
         if(!token){
-            res.status(401).end("Token not Provided")
+            res.status(401).send("Token not Provided")
         }
 
         const decoded = jwt.verify(token,process.env.secretCode)
@@ -24,7 +24,7 @@ const middleware = (req,res,next) => {
         console.log(req.userId,req.username , "check")
 
         if(!decoded){
-            res.end("You are not authenticated")
+            res.send("You are not authenticated")
         }
         next();
 
